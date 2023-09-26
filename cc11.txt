@@ -4,7 +4,7 @@
 .outputs Oscillator
 
 .latches
-Oscillator -> OscillatorM
+Oscillator->OscillatorM
 
 .update
 

@@ -1,6 +1,6 @@
 .hardware helloworld
 
-.inputs Reset
+.inputs Test Av Hvad
 .outputs Oscillator
 
 .latches

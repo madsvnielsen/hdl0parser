@@ -1,39 +1,33 @@
 grammar cc;
 
-start : (commands)* EOF;
+start : (c=commands)* EOF;
 
 
-commands : HARDWARECMD
-         | INPUTSCMD
-         | OUTPUTSCMD
-         | updatescmd
-         | latchescmd
-         | simulatedcmd
-         | ignore
+commands : '.hardware ' sig=SIGNAL '\n'* #Hwcmd
+         | '.inputs '  sig=SIGNAL+ '\n'*   #Incmd
+         | '.outputs ' sig=SIGNAL+ '\n'* #Oucmd
+         | '.update' '\n'*  (ass=assignment)+ '\n'* #Upcmd
+         | '.latches' '\n'*  (lat=latch)+ '\n'*  #Lacmd
+         | '.simulate' '\n'*  (io=iovalue)+ '\n'* #Sicmd
         ;
 
 
-assignment : SIGNAL '=' exp '\n'?;
-latch : SIGNAL '->' SIGNAL '\n'?;
-iovalue : SIGNAL '=' BINARY '\n'?;
+assignment : sig=SIGNAL '=' e=exp '\n'?;
+latch : sig1=SIGNAL '->' sig2=SIGNAL '\n'?;
+iovalue : sig1=SIGNAL '=' bin=BINARY '\n'?;
 
 
 BINARY : [0-1]+;
 SIGNAL : [a-zA-Z0-9]+;
 
-HARDWARECMD : '.hardware ' SIGNAL;
-INPUTSCMD : '.inputs '  (SIGNAL' ')* SIGNAL '\n';
-OUTPUTSCMD : '.outputs '  (SIGNAL' ')* SIGNAL;
 
-updatescmd : '.update' '\n'*  (assignment)+;
-latchescmd : '.latches' '\n'*  (latch)+;
-simulatedcmd : '.simulate' '\n'*  (iovalue)+;
 
-exp : '(' exp')'
-    | '!' exp
-    | exp '&&' exp
-    | exp '||' exp
-    | SIGNAL
+
+exp : '(' e=exp')'          #ParenOp
+    | op='!' e=exp          #NotOp
+    | e1=exp op='&&' e2=exp #AndOp
+    | e1=exp op='||' e2=exp #OrOp
+    | sig=SIGNAL            #SigOp
     ;
 
 ignore : COMMENT|MULTICOMMENT;

@@ -28,13 +28,73 @@ public class ccBaseListener implements ccListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCommands(ccParser.CommandsContext ctx) { }
+	@Override public void enterHwcmd(ccParser.HwcmdContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCommands(ccParser.CommandsContext ctx) { }
+	@Override public void exitHwcmd(ccParser.HwcmdContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterIncmd(ccParser.IncmdContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitIncmd(ccParser.IncmdContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOucmd(ccParser.OucmdContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOucmd(ccParser.OucmdContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterUpcmd(ccParser.UpcmdContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitUpcmd(ccParser.UpcmdContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterLacmd(ccParser.LacmdContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLacmd(ccParser.LacmdContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSicmd(ccParser.SicmdContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSicmd(ccParser.SicmdContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -76,49 +136,61 @@ public class ccBaseListener implements ccListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterUpdatescmd(ccParser.UpdatescmdContext ctx) { }
+	@Override public void enterSigOp(ccParser.SigOpContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitUpdatescmd(ccParser.UpdatescmdContext ctx) { }
+	@Override public void exitSigOp(ccParser.SigOpContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterLatchescmd(ccParser.LatchescmdContext ctx) { }
+	@Override public void enterOrOp(ccParser.OrOpContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitLatchescmd(ccParser.LatchescmdContext ctx) { }
+	@Override public void exitOrOp(ccParser.OrOpContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSimulatedcmd(ccParser.SimulatedcmdContext ctx) { }
+	@Override public void enterParenOp(ccParser.ParenOpContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSimulatedcmd(ccParser.SimulatedcmdContext ctx) { }
+	@Override public void exitParenOp(ccParser.ParenOpContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExp(ccParser.ExpContext ctx) { }
+	@Override public void enterNotOp(ccParser.NotOpContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExp(ccParser.ExpContext ctx) { }
+	@Override public void exitNotOp(ccParser.NotOpContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterAndOp(ccParser.AndOpContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAndOp(ccParser.AndOpContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
