@@ -1,14 +1,14 @@
 grammar cc;
 
-start : (c=commands)* EOF;
+start : (c+=commands)* EOF;
 
 
 commands : '.hardware ' sig=SIGNAL '\n'* #Hwcmd
-         | '.inputs '  sig=SIGNAL+ '\n'*   #Incmd
-         | '.outputs ' sig=SIGNAL+ '\n'* #Oucmd
-         | '.update' '\n'*  (ass=assignment)+ '\n'* #Upcmd
-         | '.latches' '\n'*  (lat=latch)+ '\n'*  #Lacmd
-         | '.simulate' '\n'*  (io=iovalue)+ '\n'* #Sicmd
+         | '.inputs '  sig+=SIGNAL+ '\n'*   #Incmd
+         | '.outputs ' sig+=SIGNAL+ '\n'* #Oucmd
+         | '.update' '\n'*  (ass+=assignment)+ '\n'* #Upcmd
+         | '.latches' '\n'*  (lat+=latch)+ '\n'*  #Lacmd
+         | '.simulate' '\n'*  (io+=iovalue)+ '\n'* #Sicmd
         ;
 
 

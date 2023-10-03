@@ -96,7 +96,8 @@ public class ccParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class StartContext extends ParserRuleContext {
-		public CommandsContext c;
+		public CommandsContext commands;
+		public List<CommandsContext> c = new ArrayList<CommandsContext>();
 		public TerminalNode EOF() { return getToken(ccParser.EOF, 0); }
 		public List<CommandsContext> commands() {
 			return getRuleContexts(CommandsContext.class);
@@ -137,7 +138,8 @@ public class ccParser extends Parser {
 				{
 				{
 				setState(14);
-				((StartContext)_localctx).c = commands();
+				((StartContext)_localctx).commands = commands();
+				((StartContext)_localctx).c.add(((StartContext)_localctx).commands);
 				}
 				}
 				setState(19);
@@ -192,7 +194,8 @@ public class ccParser extends Parser {
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class SicmdContext extends CommandsContext {
-		public IovalueContext io;
+		public IovalueContext iovalue;
+		public List<IovalueContext> io = new ArrayList<IovalueContext>();
 		public List<IovalueContext> iovalue() {
 			return getRuleContexts(IovalueContext.class);
 		}
@@ -216,7 +219,8 @@ public class ccParser extends Parser {
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class LacmdContext extends CommandsContext {
-		public LatchContext lat;
+		public LatchContext latch;
+		public List<LatchContext> lat = new ArrayList<LatchContext>();
 		public List<LatchContext> latch() {
 			return getRuleContexts(LatchContext.class);
 		}
@@ -240,7 +244,8 @@ public class ccParser extends Parser {
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class OucmdContext extends CommandsContext {
-		public Token sig;
+		public Token SIGNAL;
+		public List<Token> sig = new ArrayList<Token>();
 		public List<TerminalNode> SIGNAL() { return getTokens(ccParser.SIGNAL); }
 		public TerminalNode SIGNAL(int i) {
 			return getToken(ccParser.SIGNAL, i);
@@ -262,7 +267,8 @@ public class ccParser extends Parser {
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class IncmdContext extends CommandsContext {
-		public Token sig;
+		public Token SIGNAL;
+		public List<Token> sig = new ArrayList<Token>();
 		public List<TerminalNode> SIGNAL() { return getTokens(ccParser.SIGNAL); }
 		public TerminalNode SIGNAL(int i) {
 			return getToken(ccParser.SIGNAL, i);
@@ -284,7 +290,8 @@ public class ccParser extends Parser {
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class UpcmdContext extends CommandsContext {
-		public AssignmentContext ass;
+		public AssignmentContext assignment;
+		public List<AssignmentContext> ass = new ArrayList<AssignmentContext>();
 		public List<AssignmentContext> assignment() {
 			return getRuleContexts(AssignmentContext.class);
 		}
@@ -352,7 +359,8 @@ public class ccParser extends Parser {
 					{
 					{
 					setState(31);
-					((IncmdContext)_localctx).sig = match(SIGNAL);
+					((IncmdContext)_localctx).SIGNAL = match(SIGNAL);
+					((IncmdContext)_localctx).sig.add(((IncmdContext)_localctx).SIGNAL);
 					}
 					}
 					setState(34); 
@@ -388,7 +396,8 @@ public class ccParser extends Parser {
 					{
 					{
 					setState(43);
-					((OucmdContext)_localctx).sig = match(SIGNAL);
+					((OucmdContext)_localctx).SIGNAL = match(SIGNAL);
+					((OucmdContext)_localctx).sig.add(((OucmdContext)_localctx).SIGNAL);
 					}
 					}
 					setState(46); 
@@ -438,7 +447,8 @@ public class ccParser extends Parser {
 					{
 					{
 					setState(61);
-					((UpcmdContext)_localctx).ass = assignment();
+					((UpcmdContext)_localctx).assignment = assignment();
+					((UpcmdContext)_localctx).ass.add(((UpcmdContext)_localctx).assignment);
 					}
 					}
 					setState(64); 
@@ -488,7 +498,8 @@ public class ccParser extends Parser {
 					{
 					{
 					setState(79);
-					((LacmdContext)_localctx).lat = latch();
+					((LacmdContext)_localctx).latch = latch();
+					((LacmdContext)_localctx).lat.add(((LacmdContext)_localctx).latch);
 					}
 					}
 					setState(82); 
@@ -538,7 +549,8 @@ public class ccParser extends Parser {
 					{
 					{
 					setState(97);
-					((SicmdContext)_localctx).io = iovalue();
+					((SicmdContext)_localctx).iovalue = iovalue();
+					((SicmdContext)_localctx).io.add(((SicmdContext)_localctx).iovalue);
 					}
 					}
 					setState(100); 
